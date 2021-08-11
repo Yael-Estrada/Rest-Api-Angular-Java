@@ -1,0 +1,20 @@
+<div id="content" class="container col-lg-10 col-lg-offset-1">
+  <header id="header" class="col-lg-12" [style.background]="header_color">
+    <h1>{{title}}</h1>
+  </header>
+  <nav id="nv" class="col-lg-12">
+    <ul>
+      <li><a [routerLink]="['/home']" [routerLinkActive]="['activado']">Home</a></li>
+      <li><a [routerLink]="['/inventario']" [routerLinkActive]="['activado']">Libros</a></li>
+      <li><a [routerLink]="['/agregarLibro']" [routerLinkActive]="['activado']">Agregar un libro</a></li>
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <br>
+  <section id="main" class="col-lg-12">
+    <router-outlet></router-outlet>
+  </section>
+  <footer class=" container col-lg-12">
+    <p>Examen SERTI - Yael Estrada</p>
+  </footer>
+</div>

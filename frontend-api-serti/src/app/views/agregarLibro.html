@@ -1,0 +1,44 @@
+<div class="container row"><h3>{{title}}</h3></div>
+<hr/>
+<div class="container">
+	 <div class="row">
+        <div class="col-sm-8">
+			<form #formProducto="ngForm" class="col-lg-8" id="form-libro" (ngSubmit)="onSubmit()">
+				<div class="form-group float-label-control">
+					<label>Título
+						<span class="label label-danger" *ngIf="!titulo.valid&&titulo.touched">El titulo es obligatorio</span>
+					</label>
+					<input type="text" #titulo="ngModel" id="form-field" name="titulo" [(ngModel)]="libro.titulo" class="form-control" required>
+				</div>
+				<div class="form-group float-label-control">
+					<label>Volumen
+						<span class="label label-danger" *ngIf="!volumen.valid&&volumen.touched">El Volumen debe ser caracter numérico</span>
+					</label>
+					<input type="text" #volumen="ngModel" id="form-field" name="volumen" [(ngModel)]="libro.volumen" class="form-control" onfocus="this.value=''" required pattern="[0-9]+" required>
+				</div>
+				<div class="form-group float-label-control">
+					<h4>Localizacion:</h4>
+					<span class="label label-danger" *ngIf="ocupado">La localización ingresada ya está ocupada</span><br/>
+					<label>Sala:
+						<span class="label label-danger" *ngIf="!sala.valid&&sala.touched">La sala debe ser caracter numérico</span>
+					</label>
+					<input type="text" onfocus="this.value=''" #sala="ngModel" name="sala" [(ngModel)]="localizacion.sala" class="form-control" required pattern="[0-9]+">
+				</div>
+				<div class="form-group float-label-control">
+					<label>Estante:
+						<span class="label label-danger" *ngIf="!estante.valid&&estante.touched">El estante debe ser caracter numérico</span>
+					</label>
+					<input type="text" onfocus="this.value=''" #estante="ngModel" name="estante" [(ngModel)]="localizacion.estante" class="form-control" required pattern="[0-9]+">
+				</div>
+				<div class="form-group float-label-control">
+					<label>Posicion:
+						<span class="label label-danger" *ngIf="!posicion.valid&&posicion.touched">La posicion debe ser caracter numérico</span>
+					</label>
+					<input type="text" onfocus="this.value=''" #posicion="ngModel" name="posicion" [(ngModel)]="localizacion.posicion" class="form-control" required pattern="[0-9]+">
+				</div><br/>
+				<input type="submit" class="btn btn-success" value="Guardar libro" [disabled]="!formProducto.form.valid">
+			</form>
+		</div>
+	</div>
+</div>
+
