@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.bd.ServiciosLocalizacion">
+    <insert id="Insertar" parameterType="localizacion">
+    INSERT INTO localizacion VALUES (#{idLocalizacion},#{sala},#{estante},#{posicion})
+    </insert>
+    <delete id="Borrar">
+        DELETE FROM localizacion WHERE idLocalizacion=#{id}
+    </delete>
+    <update id="Modificar" parameterType="localizacion">
+        UPDATE localizacion SET sala=#{sala},estante=#{estante},posicion=#{posicion} WHERE idLocalizacion=#{idLocalizacion}
+    </update>
+    <select id="Obtener" resultType="localizacion">
+        SELECT * FROM Localizacion
+    </select>
+    <select id="ObtenerLocalizacion" resultType="localizacion">
+        SELECT * FROM Localizacion WHERE idLocalizacion=#{id}
+    </select>
+    <select id="ExisteLocalizacion" resultType="localizacion">
+        SELECT * FROM Localizacion WHERE sala=#{sala} and estante=#{estante} and posicion=#{posicion}
+    </select>
+</mapper>
+

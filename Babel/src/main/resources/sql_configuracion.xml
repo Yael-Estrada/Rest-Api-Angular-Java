@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+     <typeAlias type="com.project.bd.Libro" alias="libro"></typeAlias>
+     <typeAlias type="com.project.bd.Localizacion" alias="localizacion"></typeAlias>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"></property>
+                <property name="url"
+                value="jdbc:mysql://localhost:3306/babel"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="root"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="MapeoLibros.xml"></mapper>
+        <mapper resource="MapeoLocalizacion.xml"></mapper>
+    </mappers>
+</configuration>

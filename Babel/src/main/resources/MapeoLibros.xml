@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.bd.ServiciosLibro">
+    <insert id="Insertar" parameterType="libro">
+    INSERT INTO libro VALUES (#{idLibro},#{volumen},#{titulo},#{idLocalizacion})
+    </insert>
+    <delete id="Borrar">
+        DELETE FROM libro WHERE idLibro=#{id}
+    </delete>
+    <update id="Modificar" parameterType="libro">
+        UPDATE libro SET volumen=#{volumen},titulo=#{titulo},idLocalizacion=#{idLocalizacion} WHERE idLibro=#{idLibro}
+    </update>
+    <select id="Obtener" resultType="libro">
+        SELECT * FROM Libro
+    </select>
+    <select id="ObtenerLibro" resultType="libro">
+        SELECT * FROM Libro WHERE idLibro=#{id}
+    </select>
+    <select id="ExisteLibro" resultType="libro">
+        SELECT * FROM Libro WHERE volumen=#{volumen} and titulo=#{titulo}
+    </select>
+    <select id="ObtenerPorInicio" parameterType="String" resultType="libro">
+        SELECT*FROM LIBRO WHERE titulo Like "%${s}%"
+    </select>
+</mapper>
